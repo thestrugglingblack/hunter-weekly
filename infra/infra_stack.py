@@ -39,7 +39,7 @@ class HunterWeeklyStack(Stack):
                     )
 
         role = iam.Role(self, "HunterWeeklyRole",
-                        assumed_by=iam.ServicePrincipal("lambda_func.amazonaws.com")
+                        assumed_by=iam.ServicePrincipal("lambda.amazonaws.com")
                         )
 
         lambda_execution_policy = iam.PolicyStatement(
@@ -153,6 +153,6 @@ class HunterWeeklyStack(Stack):
 
         # EventBridge
         cron_rule = events.Rule(self, "HunterWeeklyRule",
-                                schedule=events.Schedule.expression("cron(0 2 ? * WED *)"),
+                                schedule=events.Schedule.expression("cron(0 2 ? * THUR *)"),
                                 )
         cron_rule.add_target(targets.LambdaFunction(lambda_func))
