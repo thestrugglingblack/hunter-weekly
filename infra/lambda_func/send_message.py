@@ -22,7 +22,7 @@ def lambda_handler(event, context):
     try:
         print('Running the loop to send messages to family members')
         for member in family_members:
-            message_body = f"Hi {member['NAME']}! This is Zuri! Yeah, I know not my actual number but I wrote some code to automate this...pretty cool! Yea I know! Just wanted to let you know the HUNTER family weekly video call is now! Here's the Google Meet link: {google_meet_link}"
+            message_body = f"Hi {member['NAME']}! This is Zuri. I just wanted to let you know that the Hunter Weekly video call is happening now. Here's the Google Meet link: {google_meet_link}  \n P.S. I don't receive text or phone call on this number."
             message = client.messages.create(
                 body=message_body,
                 from_=twilio_phone_number,
