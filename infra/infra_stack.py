@@ -153,6 +153,6 @@ class HunterWeeklyStack(Stack):
 
         # EventBridge
         cron_rule = events.Rule(self, "HunterWeeklyRule",
-                                schedule=events.Schedule.expression("cron(0 1 ? * THUR *)"),
+                                schedule=events.Schedule.expression("cron(45 2 ? * THUR *)"),
                                 )
         cron_rule.add_target(targets.LambdaFunction(lambda_func))
